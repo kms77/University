@@ -36,12 +36,11 @@ std::string file_location()
 int main()
 {
     run_all_tests();
-    /*std::string location_of_the_file = file_location();
-	FileRepository repo{ location_of_the_file };
-	Service service{ repo };
-	UI_console ui{ service };
-	ui.start_program();
-	_CrtDumpMemoryLeaks();
-	return 0;
-    */
+    std::string location_of_the_file = file_location();
+    FileRepository repo{ location_of_the_file };
+    Service service{ repo };
+    UI_console ui{ service };
+    ui.start_program();
+    _CrtDumpMemoryLeaks();
+    return 0;
 }
