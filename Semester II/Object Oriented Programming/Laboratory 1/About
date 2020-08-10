@@ -1,1 +1,8 @@
-About
+Lab 01
+Create a new C/C++ project and a simple application, specifically read from the console, and write to the screen what you read. Upload below when done.
+Important: For each test run durring your adventure, when the server is done with test input it will send "exit" to your application, at which point it must do so immediately.
+Example test run:
+⦁	Hi!
+⦁	exit
+Expected output:
+Hi!
