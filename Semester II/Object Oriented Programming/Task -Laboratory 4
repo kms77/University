@@ -1,0 +1,16 @@
+Laboratory 4
+⦁	He wants to see all gear whose value does not reach a spoken value ordered ascending by state. The incantation must be able to undo/redo any number of mistakes.
+⦁	All incantations must be spoken in the form:
+⦁	list maximumValue
+⦁	undo
+⦁	redo
+⦁	The size of the shelves where you store the ingredients must change depending on the number of ingredients, extending as needed.
+⦁	You need to use multiple tablets to keep your incantations on. (define a vector structure with a dynamically allocated array)
+⦁	Write notes (specification) on your work and (unit) test everything.
+⦁	Mana must not leak from the tablets.
+Bonus
+You hear of extra rewards for you third and forth assignment.
+⦁	Remember to use function pointers for: (deadline: week 4, bonus: 0.1p)
+⦁	For your third assignment add a different type of filtering (your choice).
+⦁	For your forth assignment add descending sorting.
+⦁	For your forth assignment, provide 2 different implementations for the undo/redo functionality: one using a list of operations and oneusing the "list of lists" approach. Implementyour dynamic array generically, such that it can contain any type of elements (use void*). Use this structure for your repository, as well as to implement the "list of lists" approach for the multiple undo/redo functionality. (deadline: week 5, bonus: 0.3p)
