@@ -1,0 +1,9 @@
+Laboratory 5
+You decide to use the technique called DynamicVector defined by you, from which mana does not leak. Make sure to (unit) test everything.
+All enchantments must take the form:
+⦁	mode X (e.g. mode A)
+⦁	add location, size, auraLevel, separateParts, vision (e.g. add south-west wall center, medium, 500, 33000, great stone tower)
+⦁	update location, newSize, newAuraLevel, newSeparateParts, newVision (e.g. south-west wall center, huge, 500, 50000, magnificent stone tower)
+⦁	delete location (e.g. delete south-west wall center)
+⦁	list
+⦁	exit
