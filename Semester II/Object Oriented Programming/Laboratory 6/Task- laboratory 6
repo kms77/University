@@ -1,0 +1,12 @@
+Laboratory 6
+Watchman communion pattern: A lower ranking member of the Watch can access the altar and its enchantment and choose one or more Norven turrets to shed their scaffolding in order to test out their mobility or capabilities. These powers can be accessed only when in mode B. The altar will allow the watchman to:
+1.	See the Norven turrets in the encyclopedia, having a given size, one by one. If the size is empty, then all the turrets will be considered. When the watchman chooses this option, the characteristics of the first turret (location, size, level of arcane emanations exuded by its aura, quantity of separate parts, vision) is displayed, along with its afferent mirror-image.
+2.	Choose to select a certain turret to shed its scaffolding and be prepared for channeling. In this case the turret will be set in place on the walls.
+3.	Choose not to select a certain turret to be activated and to continue to the following one. In this case, the lore corresponding to the next Norven turret is shown and the watchman is again offered the possibility to activate and channel its powers. This can continue as long as the watchman wants, as when arriving to the end of the encyclopedia, if the watchman chooses to continue examining the list, the altar frontispiece will again show the first Norven turret.
+4.	Show all turrets of a given size who have at least a certain number of parts.
+5.	See the upper battlements where the watchman activated turrets will be levitating.
+You decide to use higher form of DinamicVector that which uses runes of template! All enchantments must take the form:
+•	next
+•	save location (e.g. save south-west wall center)
+•	list size, separateParts (e.g. list medium, 30000)
+•	mylist
