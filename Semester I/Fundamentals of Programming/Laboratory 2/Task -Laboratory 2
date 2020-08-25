@@ -15,3 +15,5 @@ global variables)
 modify numbers, use getters and setters.
 - Provide the user with a menu-driven console-based user interface. Input data should be read
 from the console and the results printed to the console.
+ -- Numbers having increasing modulus.
+ -- Real numbers.
