@@ -1,0 +1,37 @@
+FAMILY EXPENSES
+A family wants to manage their monthly expenses. In order to complete this task, the family needs an
+application to store, for a given month, all their expenses. Each expense will be stored in the application
+using the following elements: day (of the month in which it was made, between 1 and 30), amount of
+money (positive integer) and expense type (one of: housekeeping, food, transport, clothing, internet,
+others). The family needs an application that provides the following functionalities (each functionality is
+exemplified):
+1. Add a new expense into the list.
+add <sum> <category>
+insert <day> <sum> <category>
+e.g.
+add 10 internet – add to the current day an expense of 10 RON for internet.
+insert 25 100 food – insert to day 25 an expense of 100 RON for food.
+2. Modify expenses from the list.
+remove <day>
+remove <start day> to <end day>
+remove <category>
+e.g.
+remove 15 – remove all the expenses for day 15.
+remove 2 to 9 – remove all the expenses between day 2 and day 9.
+remove food – remove all the expenses for food from the current month.
+3. Write the expenses having different properties.
+list
+list <category>
+list <category> [ < | = | > ] <value>
+e.g.
+list – write the entire list of expenses.
+list food – write all the expenses for food.
+list food > 5 - writes all expenses for food with an amount of money > 5.
+list internet = 44 - writes all expenses for internet with an amount of money = 44.
+Fundamentals of Programming
+ TASKS:
+- Implement features 1, 2 and 3
+- Use procedural programming
+-  Have at least 10 items in your application at startup
+- Provide specification and tests for all non-UI functions related to the first functionality.
+- Implement remaining features
