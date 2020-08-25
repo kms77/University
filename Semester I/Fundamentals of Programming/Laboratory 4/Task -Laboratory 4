@@ -28,10 +28,6 @@ list – write the entire list of expenses.
 list food – write all the expenses for food.
 list food > 5 - writes all expenses for food with an amount of money > 5.
 list internet = 44 - writes all expenses for internet with an amount of money = 44.
-Babeș-Bolyai University
-Cluj Napoca
-Faculty of Mathematics and Computer Science
-Fundamentals of Programming
 4. Obtain different characteristics of sublists.
 sum <category>
 max <day>
