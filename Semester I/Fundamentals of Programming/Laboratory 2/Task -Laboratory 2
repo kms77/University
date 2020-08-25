@@ -1,0 +1,17 @@
+Implement a menu-driven console application that provides the following functionalities:
+1. Read a list of complex numbers (in z = a + bi form) from the console.
+2. Display the entire list of numbers on the console.
+3. Display on the console the longest sequence that observes a given property. Each student will
+receive 2 of the properties from the list provided below.
+4. Exit the application.
+The source code will include:
+a. Specifications for the functions related to point 3 above.
+b. 10 suitable complex numbers already available at program startup.
+Use functions to: read a complex number from the console, write a complex number to the
+console, implement each required functionality.
+- Functions communicate using input parameter(s) and the return statement (DO NOT use
+global variables)
+- Each complex number should be represented as a list or tuple (e.g. 1-2i as [1, -2]). To access or
+modify numbers, use getters and setters.
+- Provide the user with a menu-driven console-based user interface. Input data should be read
+from the console and the results printed to the console.
