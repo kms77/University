@@ -252,7 +252,6 @@ if __name__=="__main__":
                  print("The program was closed")
                  break
              elif choice==1:
-                 suitable_numbers()
                  while True:
                      try:
                         menu_driven_2()
