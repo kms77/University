@@ -1,0 +1,9 @@
+
+You will be given one of the problems below to solve using feature-driven development.
+- The program must provide a menu-driven console user interface.
+- Use classes to represent the following:
+   -> The domain entity (ComplexNumber, Expense, Student, Book)
+   -> A UI class, that implements the user interface
+   -> A Services class, that implements the required functionalities
+- Have 10 programmatically generated entries in the application at start-up.
+- Tests and specifications for non-UI functions related to the first functionality.
