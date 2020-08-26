@@ -8,7 +8,6 @@ class RepoExpense:
     x: the list of expenses
     '''
     def ten_examples(self,x):
-        #provide 10 exemples at the start-up
         for i in x:
             self.__entities.append(i)
         l=[]
@@ -25,10 +24,6 @@ class RepoExpense:
     return: -
     '''
     def add(self,x):
-        """
-        add a new element in the list
-        make a  copy of the list for undo function
-        """
         self.__entities.append(x)
         l=[]
         l=self.__entities.copy()
