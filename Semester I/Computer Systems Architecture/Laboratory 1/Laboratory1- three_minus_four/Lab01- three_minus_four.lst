@@ -1,0 +1,26 @@
+     1                                  ;Task
+     2                                  ;Write a program in the assembly language that computes: 3-4=-1
+     3                                  bits 32 ; assembling for the 32 bits architecture
+     4                                  
+     5                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     6                                  global start        
+     7                                  
+     8                                  ; declare external functions needed by our program
+     9                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    10                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    11                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    12                                  
+    13                                  ; our data is declared here (the variables needed by our program)
+    14                                  segment data use32 class=data
+    15                                      ; ...
+    16                                  
+    17                                  ; our code starts here
+    18                                  segment code use32 class=code
+    19                                      start:
+    20                                          ; ...
+    21 00000000 B003                            mov AL,3             ; AL=3
+    22 00000002 B304                            mov BL,4             ; BL=4 
+    23 00000004 28D8                            sub AL,BL            ; AL=AL-BL=3-4=-1 =>AL=FF (in hexadecimal)
+    24                                          ; exit(0)
+    25 00000006 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    26 00000008 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
