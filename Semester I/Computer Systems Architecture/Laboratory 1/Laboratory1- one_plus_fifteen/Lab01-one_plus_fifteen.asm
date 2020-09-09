@@ -19,8 +19,8 @@ segment code use32 class=code
     start:
         ; ...
         mov AL,1             ; AL=1
-        mov BL,15            ; BH=15=F (in hexadecimal)
-        add AL,BL            ; AL=AL+BH=1+15=16=10 (in hexadecimal)
+        mov BL,15            ; BL=15=F (in hexadecimal)
+        add AL,BL            ; AL=AL+BL=1+15=16=10 (in hexadecimal)
         ; exit(0)
         push    dword 0      ; push the parameter for exit onto the stack
         call    [exit]       ; call exit to terminate the program
