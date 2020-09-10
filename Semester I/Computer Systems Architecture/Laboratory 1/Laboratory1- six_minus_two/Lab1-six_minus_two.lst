@@ -1,0 +1,23 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; 6-2=4
+     3                                  bits 32 ; assembling for the 32 bits architecture
+     4                                  
+     5                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     6                                  global start        
+     7                                  
+     8                                  ; declare external functions needed by our program
+     9                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    10                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    11                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    12                                  
+    13                                  ; our data is declared here (the variables needed by our program)
+    14                                  segment data use32 class=data
+    15                                  ; our code starts here
+    16                                  segment code use32 class=code
+    17                                      start:
+    18                                          ; ...
+    19 00000000 B006                            mov AL,6            ;AL=6
+    20 00000002 B402                            mov Ah,2            ;AH=2
+    21 00000004 28E0                            sub AL,AH           ;AL=AL-AH=6-2=4
+    22 00000006 6A00                            push    dword 0     ; push the parameter for exit onto the stack
+    23 00000008 FF15[00000000]                  call    [exit]      ; call exit to terminate the program
