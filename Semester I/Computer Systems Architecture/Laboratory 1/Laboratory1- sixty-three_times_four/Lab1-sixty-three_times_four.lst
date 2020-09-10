@@ -1,0 +1,20 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; 64*4=256
+     3                                  bits 32 ; assembling for the 32 bits architecture
+     4                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     5                                  global start        
+     6                                  ; declare external functions needed by our program
+     7                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     8                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+     9                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    10                                  ; our data is declared here (the variables needed by our program)
+    11                                  segment data use32 class=data
+    12                                  ; our code starts here
+    13                                  segment code use32 class=code
+    14                                      start:
+    15                                          ; ...
+    16 00000000 B040                            mov AL,64           ;AL=64=  (in hexadecimal)
+    17 00000002 B404                            mov AH,4            ;AH=4
+    18 00000004 F6E4                            mul AH              ;AL=AL*AH=64*4=256= (in hexadecimal)
+    19 00000006 6A00                            push    dword 0     ; push the parameter for exit onto the stack
+    20 00000008 FF15[00000000]                  call    [exit]      ; call exit to terminate the program
