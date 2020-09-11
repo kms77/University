@@ -1,0 +1,13 @@
+Write a program in assembly language which computes one of the following arithmetic expressions, considering the following domains for the variables 
+(in the unsigned and signed representation):
+1) -> a - byte, b - word, c - double word, d - qword - Unsigned representation
+   -> Expression : c-(a+d)+(b+d)
+  
+2) -> a - byte, b - word, c - double word, d - qword - Signed representation
+   -> Expression: (c+b+a)-(d+d)
+   
+3) -> a - byte, b - doubleword; c-qword
+   -> Expression: c+(a*a-b+7)/(2+a)
+  
+4) -> a,b,c-byte; d-doubleword; e-qword
+   -> Expression: 2/(a+b*c-9)+e-d
