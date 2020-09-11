@@ -14,7 +14,7 @@ segment code use32 class=code
     start:
         ; ...
         mov AL,14           ;AL=14=E  (in hexadecimal)
-        mov AH,0            ;convert AH:AL to AX
+        mov AH,0            ;unsigned conversion from AL to AX
         mov BL,6            ;BH=6
         div BL              ;AL=AX/BL=14/6=2
         push    dword 0     ; push the parameter for exit onto the stack
