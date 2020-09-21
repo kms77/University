@@ -1,0 +1,44 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; -> a - byte, b - doubleword; c-qword, where: a=2, b=1, c=20=14 (in hexadecimal) - Signed representation
+     3                                  ; Expression: c+(a*a-b+7)/(2+a)=20+(2*2-1+7)/(2+2)=20+(10)/(4)=22=16 (in hexadecimal)
+     4                                  bits 32 ; assembling for the 32 bits architecture
+     5                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     6                                  global start        
+     7                                  ; declare external functions needed by our program
+     8                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+     9                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    10                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    11                                  ; our data is declared here (the variables needed by our program)
+    12                                  segment data use32 class=data
+    13 00000000 02                          a DB 2   
+    14 00000001 01000000                    b DD 1   
+    15 00000005 1400000000000000            c DQ 20   
+    16 0000000D 00000000                    aux DD 0    
+    17                                  ; our code starts here
+    18                                  segment code use32 class=code
+    19                                      start:
+    20 00000000 A0[00000000]                    mov AL, byte[a]      ; AL=a=2
+    21 00000005 0402                            add AL,2             ; AL=AL+2=4
+    22 00000007 6698                            cbw                  ; signed conversion form AL to AX
+    23 00000009 6699                            cwd                  ; signed conversion from AX to DX:AX
+    24 0000000B 6652                            push DX
+    25 0000000D 6650                            push AX
+    26 0000000F 58                              pop EAX              ; EAX=DX:AX=4
+    27 00000010 89C3                            mov EBX,EAX          ; EBX=EAX=4
+    28 00000012 B800000000                      mov EAX,0            ; EAX=0
+    29 00000017 A0[00000000]                    mov AL,byte[a]       ; AL=a=2
+    30 0000001C F62D[00000000]                  imul byte[a]         ; AX=AL*a=2*2=4
+    31 00000022 6699                            cwd                  ; signed conversion from AX to DX:AX
+    32 00000024 6652                            push DX
+    33 00000026 6650                            push AX
+    34 00000028 58                              pop EAX              ; EAX=DX:AX
+    35 00000029 2B05[01000000]                  sub EAX,dword[b]     ; EAX=EAX-b=4-1=3
+    36 0000002F B907000000                      mov ECX,7            ; EBX=7
+    37 00000034 01C8                            add EAX,ECX          ; EAX=EAX+EBX=3+7=10=A (in hexadecimal)
+    38 00000036 99                              cdq                  ; signed conversion from EAX to EDX:EAX
+    39 00000037 F7FB                            idiv EBX             ; EAX= EDX:EAX/EBX=10/4=2  || EDX=0
+    40 00000039 99                              cdq
+    41 0000003A 0305[05000000]                  add EAX,dword[c]
+    42 00000040 1315[09000000]                  adc EDX,dword[c+4]   ; EDX:EAX=EDX:EAX+c=20+2=22=16 (in hexadecimal)
+    43 00000046 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    44 00000048 FF15[00000000]                  call    [exit]       ; call exit to terminate the program
