@@ -1,0 +1,52 @@
+     1                                  ; Write a program in the assembly language that computes the following arithmetic expression, considering the following data types for the variables:
+     2                                  ; a,b,c-byte; d-doubleword; e-qword- where a=3, b=2, c=4, d=10=A (in hexadecimal), e=20=14 (in hexadecimal) 
+     3                                  ; Expression: 2/(a+b*c-9)+e-d = 2/(3+2*4-9)+20-10=2/(3+8-9)+10=(2/2)+10=11=B (in hexadecimal) -Sign representation
+     4                                  
+     5                                  bits 32 ; assembling for the 32 bits architecture
+     6                                  
+     7                                  ; declare the EntryPoint (a label defining the very first instruction of the program)
+     8                                  global start        
+     9                                  
+    10                                  ; declare external functions needed by our program
+    11                                  extern exit               ; tell nasm that exit exists even if we won't be defining it
+    12                                  import exit msvcrt.dll    ; exit is a function that ends the calling process. It is defined in msvcrt.dll
+    13                                                            ; msvcrt.dll contains exit, printf and all the other important C-runtime specific functions
+    14                                  
+    15                                  ; our data is declared here (the variables needed by our program)
+    16                                  segment data use32 class=data
+    17 00000000 03                          a DB 3
+    18 00000001 02                          b DB 2
+    19 00000002 04                          c DB 4
+    20 00000003 0A000000                    d DD 10
+    21 00000007 1400000000000000            e DQ 20
+    22                                  ; our code starts here
+    23                                  segment code use32 class=code
+    24                                      start:
+    25 00000000 A0[01000000]                    mov AL, byte[b]      ; AL=b=2
+    26 00000005 F62D[02000000]                  imul byte[c]         ; AX=AL*c=2*4=8
+    27 0000000B 6689C3                          mov BX,AX            ; BX=AX=8
+    28 0000000E A0[00000000]                    mov AL, byte[a]      ; BL=a=3
+    29 00000013 6698                            cbw
+    30 00000015 6601D8                          add AX,BX            ; AX=AX+BX=8+3=11=B (in hexadecimal)
+    31 00000018 6689C3                          mov BX,AX            ; BX=AX=11=B (in hexadecimal)
+    32 0000001B B009                            mov AL,9             ; AL=9
+    33 0000001D 6698                            cbw                  ; signed conversion from AL to AX
+    34 0000001F 6629C3                          sub BX,AX            ; BX=BX-AX=11-9=2
+    35 00000022 B002                            mov AL,2             ; AL=2
+    36 00000024 6698                            cbw                  ; signed conversion from AL to AX
+    37 00000026 6699                            cwd                  ;
+    38 00000028 6652                            push DX
+    39 0000002A 6650                            push AX
+    40 0000002C 58                              pop EAX
+    41 0000002D 66F7FB                          idiv BX              ; AL=AX/BX=2/2=1  | AH=AX%BX=2%2=0
+    42 00000030 6698                            cbw                  ; signed conversion from AL to AX
+    43 00000032 6699                            cwd                  ; signed conversion from AX to DX:AX
+    44 00000034 6652                            push DX
+    45 00000036 6650                            push AX
+    46 00000038 58                              pop EAX              ; EAX=DX:AX=1
+    47 00000039 99                              cdq                  ; signed conversion from EAX to EDX:EAX
+    48 0000003A 0305[07000000]                  adD EAX, dword[e]  ; EDX:EAX=EDX:EAX+d=1+20=21=15 (in hexadecimal)
+    49 00000040 1315[0B000000]                  adc EDX, dword[e+4]    
+    50 00000046 2B05[03000000]                  sub EAX, dword[d]     ; EAX=EAX-d=21-10=11=B (in hexadecimal)
+    51 0000004C 6A00                            push    dword 0      ; push the parameter for exit onto the stack
+    52 0000004E FF15[00000000]                  call    [exit]       ; call exit to terminate the program
