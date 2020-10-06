@@ -1,2 +1,3 @@
 Laboratory 1:
 1) Please write a Java program that computes the average of all integer numbers given as command-line parameters.
+2) Please write, compile and run simple programs in Java: declare and use a class, derive a subclass, override a method, use static fields and methods, use an exception;
