@@ -1,6 +1,8 @@
 R1: Recursive programming 
  
-Write a recursive program (Python or C++ programming language) for next requirements. You can use and extend for implementation the C++/Python model available in /Lab/R1, this model already containing recursive implementations for creating, printing and destroying of a List. 
+Write a recursive program (Python or C++ programming language) for next requirements. You can use and extend for implementation the C++/Python model available
+
+in /Lab/R1, this model already containing recursive implementations for creating, printing and destroying of a List. 
  
 It is mandatory to work with a structure/class List. 
  
