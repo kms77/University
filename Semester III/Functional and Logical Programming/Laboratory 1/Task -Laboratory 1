@@ -1,0 +1,15 @@
+R1: Recursive programming 
+ 
+Write a recursive program (Python or C++ programming language) for next requirements. You can use and extend for implementation the C++/Python model available in /Lab/R1, this model already containing recursive implementations for creating, printing and destroying of a List. 
+ 
+It is mandatory to work with a structure/class List. 
+ 
+For a List will be used a linked representation. Do not use containers from STL or predefined operations on lists in Python (append, len, slicing, etc.). 
+
+Exercises:
+
+7. a. Test the equality of two lists. 
+b. Determine the intersection of two sets represented as lists. 
+
+12. a. Test the inclusion of two lists 
+b. Insert in a list, after value e, a new value e1. 
