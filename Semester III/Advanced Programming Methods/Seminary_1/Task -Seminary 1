@@ -1,0 +1,4 @@
+Task- Seminary 1:
+
+In a box there are apples, cakes and books. Please display all entities which have their weight greater than 200 grams.
+In order to represent the box please use an array. Use Model-Repository-ControllerView to design the application architecture. 
