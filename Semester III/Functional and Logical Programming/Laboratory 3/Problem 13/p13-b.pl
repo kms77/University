@@ -25,11 +25,3 @@ remove_consecutive([H1, H2, H3|T], [H1|R]) :- H2 =\= H1+1, remove_consecutive( [
 heterogeneous_list([],[]).
 heterogeneous_list([H|T], [HR|R]) :- is_list(H), !, remove_consecutive(H, HR), heterogeneous_list(T, R).
 heterogeneous_list([H|T], [H|R]) :- heterogeneous_list(T, R).
-
-
-% number is divisible with 7
-% Function which verify if a number is divisible with 7
-%  divisible_seven(x -number, R- boolean);
-%  Flow_model: divisible_seven(i,o)
-divisible_seven(X) :-
-    X mod 7 =:= 0.
