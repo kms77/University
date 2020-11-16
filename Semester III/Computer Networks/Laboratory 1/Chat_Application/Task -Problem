@@ -1,0 +1,3 @@
+Task :
+Implement a pair of client/server apps communicating trough TCP/IP (TCP sockets) for solving the following problems (try to handle all errors and communication issues) :
+      -> A client sends to the server a string message. The server returns also a message. When one of them send 'Quit' the connection will be closed;
