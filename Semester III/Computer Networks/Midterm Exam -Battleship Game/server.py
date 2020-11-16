@@ -10,7 +10,6 @@ Socket.bind(server_address)
 # It specifies the number of unaccepted connections that the system will allow before refusing new connections
 Socket.listen(2)
 while True:
-    # Wait for a connection str(sys.stderr) +
     print('Waiting for a connection...')
     connection, client_address = Socket.accept()
     print("Socket accepted!")
