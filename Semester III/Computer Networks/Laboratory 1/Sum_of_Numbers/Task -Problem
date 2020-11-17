@@ -1,0 +1,4 @@
+Task:
+
+Implement a pair of client/server apps communicating trough TCP/IP (TCP sockets) for solving the following problems (try to handle all errors and communication issues) :
+      -> A client sends to the server an array of numbers. Server returns the sum of the numbers.
